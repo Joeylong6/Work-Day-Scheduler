@@ -19,3 +19,71 @@ textarea {
   border-radius: 0;
   border-bottom: 10px solid black;
 }
+
+.event {
+  white-space: pre-wrap;
+}
+
+.timeblock {
+  text-align: center;
+  border-radius: 15px;
+}
+
+.row {
+  /* white-space: pre-wrap; */
+  height: 80px;
+  border-top: 1px solid white;
+}
+
+.hour {
+  background-color: #ffffff;
+  color: #000000;
+  border-top: 1px dashed #000000;
+}
+
+.past {
+  background-color: #f7eaea;
+  color: white;
+}
+
+.present {
+  background-color: #f06058;
+  color: white;
+}
+
+.future {
+  background-color: #95df95;
+  color: white;
+}
+
+.saveButton {
+  border-left: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #7da4c5;
+  color: white;
+}
+
+/*** OVERWRITE - MEDIA QUERY FOR TABLETS AND SMALLER  ***/
+/* This will be applied on any screen 768px and bellow */
+@media screen and (max-width: 768px), screen and (max-width: 575px) {
+  .row {
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .hour {
+    padding-right: 17%;
+  }
+
+  .saveBtn {
+    border: 0;
+    border-radius: 0.25rem;
+    height: 50px;
+  }
+
+  textarea {
+    min-height: 85px;
+    border: 0;
+  }
+}
