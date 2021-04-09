@@ -6,17 +6,16 @@ $("#currentDay").html(todayDate);
 // adding a click event listener to the save button
 $(document).ready(function () {
   $(".saveButton").on("click", function () {
-    event.preventDefault();
-    // Get nearby values of the description in JQuery
-    var text = $(this).siblings(".description").val();
+    // listening for click and then getting information from the button element's siblings and associating it with the parent's ID
+    var text = $(this).siblings(".dailyevent").val();
     var time = $(this).parent().attr("id");
 
     // Save text in local storage
-    sessionStorage.setItem(time, text);
+    localStorage.setItem(time, text);
   });
 
   function WhatTimeIsIt() {
-    //get current number of hours.
+    //get the current hour from moment.js
     var timeNow = moment().hour();
 
     // A for each loop looping over the timeblocks
@@ -26,7 +25,6 @@ $(document).ready(function () {
       // To check the current time and update the colour scheme to reflect NOW
       if (blockTime < timeNow) {
         $(this).removeClass("future");
-        console.log(this);
         $(this).removeClass("present");
         $(this).addClass("past");
       } else if (blockTime === timeNow) {
@@ -43,15 +41,15 @@ $(document).ready(function () {
 
   // rendering saved data from local storage
 
-  $("#hr9 .description").val(localStorage.getItem("hr9"));
-  $("#hr10 .description").val(localStorage.getItem("hr10"));
-  $("#hr11 .description").val(localStorage.getItem("hr11"));
-  $("#hr12 .description").val(localStorage.getItem("hr12"));
-  $("#hr13 .description").val(localStorage.getItem("hr13"));
-  $("#hr14 .description").val(localStorage.getItem("hr14"));
-  $("#hr15 .description").val(localStorage.getItem("hr15"));
-  $("#hr16 .description").val(localStorage.getItem("hr16"));
-  $("#hr17 .description").val(localStorage.getItem("hr17"));
+  $("#hr9 .dailyevent").val(localStorage.getItem("hr9"));
+  $("#hr10 .dailyevent").val(localStorage.getItem("hr10"));
+  $("#hr11 .dailyevent").val(localStorage.getItem("hr11"));
+  $("#hr12 .dailyevent").val(localStorage.getItem("hr12"));
+  $("#hr13 .dailyevent").val(localStorage.getItem("hr13"));
+  $("#hr14 .dailyevent").val(localStorage.getItem("hr14"));
+  $("#hr15 .dailyevent").val(localStorage.getItem("hr15"));
+  $("#hr16 .dailyevent").val(localStorage.getItem("hr16"));
+  $("#hr17 .dailyevent").val(localStorage.getItem("hr17"));
 
   WhatTimeIsIt();
 });
